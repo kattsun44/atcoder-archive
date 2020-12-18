@@ -12,8 +12,8 @@ function Main(input) {
         if (a === 2) {
             console.log(count);
             break;
-        // ログ'log'に今まで押したボタンの番号があればbreak、なければlogに追加
-        } else if (log.indexOf(a) !== -1) {
+        // a=1 or logに今まで押したボタンの番号があればbreak、なければlogに追加
+        } else if (a === 1 || log.indexOf(a) !== -1) {
             console.log(-1);
             break;
         } else {
