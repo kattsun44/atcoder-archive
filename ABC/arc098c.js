@@ -5,12 +5,15 @@ function Main(input) {
     const n = Number(input[0]);
     const mem = input[1];
     let min = mem.length;
+    let oc = (mem.match(/E/g) || []).length;
 
     for (let i = 0; i < mem.length; i++) {
-        const wm = mem.slice(0,i);
-        const em = mem.slice(i + 1);
-        const oc = (wm.match(/W/g) || []).length +
-                   (em.match(/E/g) || []).length;
+        if (mem[i] === 'E') {
+            oc--;
+        }
+        if (mem[i - 1] === 'W') {
+            oc++;
+        }
         if (min > oc) {
             min = oc;
         }
