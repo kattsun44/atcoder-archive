@@ -1,5 +1,7 @@
 def main():
-    x = input()
+    n = input()
+    
+    print(n)
 
 if __name__ == '__main__':
     main()
