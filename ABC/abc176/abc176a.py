@@ -1,5 +1,7 @@
+import math
 def main():
-    x = input()
+    n, x, t = list(map(int, input().split(' '))) 
+    print(math.ceil(n / x) * t)
 
 if __name__ == '__main__':
     main()
