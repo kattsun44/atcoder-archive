@@ -7,5 +7,5 @@ function Main(input) {
     }
     console.log(p);
   }
-  
+
   Main(require('fs').readFileSync('/dev/stdin', 'utf8'));
