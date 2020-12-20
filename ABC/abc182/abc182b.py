@@ -1,8 +1,6 @@
 import statistics as stat
 
 def main():
-    x = input().split('\n')
-    n = int(x[0])
     nums = list(map(int, input().split(' ')))
     cnt = 0
     gcd = []
