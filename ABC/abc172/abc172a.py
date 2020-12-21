@@ -1,7 +1,7 @@
 def main():
-    n = input()
+    n = int(input())
     
-    print(n)
+    print(n + n ** 2 + n ** 3)
 
 if __name__ == '__main__':
     main()
