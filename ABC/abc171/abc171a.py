@@ -1,7 +1,7 @@
 def main():
     n = input()
-    
-    print(n)
+    ans = 'A' if n == n.upper() else 'a'
+    print(ans)
 
 if __name__ == '__main__':
     main()
