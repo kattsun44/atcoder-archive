@@ -1,16 +1,20 @@
-import numpy as np
 def main():
     n = input()
-    a = list(map(int, input().split(' ')))
-    prod = np.prod(a)
+    A = list(map(int, input().split(' ')))
     mn = 1000000000000000000
     
-    if min(a) == 0:
+    if 0 in A:
         print(0)
-    elif prod > mn:
-        print(-1)
-    else:
-        print(prod)
+        return
+    
+    prod = 1
+    for a in A:
+        prod *= a
+        if prod > mn:
+            print(-1)
+            return
+
+    print(prod)
 
 if __name__ == '__main__':
     main()
