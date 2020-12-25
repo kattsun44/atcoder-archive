@@ -1,7 +1,16 @@
+import math
 def main():
-    n = input()
+    n, a, b = list(map(int, input().split(' ')))
+    an = a * math.floor(n / (a + b))
+    s = n % (a + b)
     
-    print(n)
+    if s > a:
+        ans = an + a
+    else:
+        ans = an + s
+        
+
+    print(ans)
 
 if __name__ == '__main__':
     main()
