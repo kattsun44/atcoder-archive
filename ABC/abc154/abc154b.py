@@ -1,7 +1,7 @@
 def main():
-    n = input()
+    n = input().strip()
     
-    print(n)
+    print("x" * len(n))
 
 if __name__ == '__main__':
     main()
