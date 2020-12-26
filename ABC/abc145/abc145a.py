@@ -1,5 +1,5 @@
 def main():
-    n = input()
+    n = int(input()) ** 2
     
     print(n)
 
