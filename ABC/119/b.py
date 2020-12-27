@@ -1,8 +1,13 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    n = int(input())
+    t = 0
+
+    for i in range(n):
+        x, u = list(input().split(' '))
+        x = float(x)
+        t += x if u == 'JPY' else x * 380000
     
-    print(n)
+    print(t)
 
 if __name__ == '__main__':
     main()

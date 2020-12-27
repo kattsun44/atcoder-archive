@@ -1,8 +1,11 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    a, b, c = list(map(int, input().split(' ')))
     
-    print(n)
+    if a * c <= b:
+        print(c)
+    else:
+        print(int(b / a))
+
 
 if __name__ == '__main__':
     main()

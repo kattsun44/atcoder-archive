@@ -1,8 +1,10 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    Y, M, D = list(map(int, input().split('/')))
     
-    print(n)
+    if M >= 5:
+        print('TBD')
+    else:
+        print('Heisei')
 
 if __name__ == '__main__':
     main()
