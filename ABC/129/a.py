@@ -1,8 +1,7 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    p, q, r = list(map(int, input().split(' ')))
     
-    print(n)
+    print(min([p+q, q+r, r+p]))
 
 if __name__ == '__main__':
     main()
