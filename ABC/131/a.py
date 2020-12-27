@@ -1,8 +1,11 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
-    
-    print(n)
+    n = input().strip()
+
+    for i in range(len(n) - 1):
+        if n[i] == n[i + 1]:
+            print('Bad')
+            return
+    print('Good')
 
 if __name__ == '__main__':
     main()
