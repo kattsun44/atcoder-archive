@@ -1,13 +1,8 @@
 def main():
-    n = input().strip()
-    if n == 'A':
-        print('T')
-    if n == 'T':
-        print('A')
-    if n == 'C':
-        print('G')
-    if n == 'G':
-        print('C')
+    H, W = list(map(int, input().split(' ')))
+    h, w = list(map(int, input().split(' ')))
+    
+    print((H - h) * (W - w))
 
 if __name__ == '__main__':
     main()
