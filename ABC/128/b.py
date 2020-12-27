@@ -3,9 +3,7 @@ def main():
     d = {}
     L = []
     for i in range(n):
-        s_and_p = input().strip()
-        L.append(s_and_p)
-        s, p = s_and_p.split(' ')
+        L.append((input().sprit(' ')))
 
         # 値はリストで持ち、重複したキーが出てきたらリストに追加
         if s not in d:
