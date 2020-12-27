@@ -1,8 +1,10 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    n = int(input())
+    A = list(map(int, input().split(' ')))
+    rA = list(map(lambda x: 1/x, A))
+    ans = 1 / sum(rA)
     
-    print(n)
+    print(ans)
 
 if __name__ == '__main__':
     main()
