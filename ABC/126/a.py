@@ -1,8 +1,12 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    n, k = list(map(int, input().split(' ')))
+    s = input().strip()
+    ans =''
+
+    for i in range(n):
+        ans += s[i].lower() if i + 1 == k else s[i]
     
-    print(n)
+    print(ans)
 
 if __name__ == '__main__':
     main()
