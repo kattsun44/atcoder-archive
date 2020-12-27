@@ -1,6 +1,6 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    n = input().strip()
+    n = list(n)
     
     print(n)
 
