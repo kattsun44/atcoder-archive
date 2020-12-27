@@ -1,8 +1,7 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    t, x = list(map(int, input().split(' ')))
     
-    print(n)
+    print(t / x)
 
 if __name__ == '__main__':
     main()
