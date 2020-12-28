@@ -1,8 +1,10 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    d = int(input())
+    ans = 'Christmas'
     
-    print(n)
+    for i in range(25 - d):
+        ans += ' Eve'
+    print(ans)
 
 if __name__ == '__main__':
     main()
