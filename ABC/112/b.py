@@ -1,8 +1,16 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    n, T = list(map(int, input().split(' ')))
+    d = dict()
+
+    for i in range(n):
+        c, t = list(map(int, input().split(' ')))
+        if t <= T:
+            d[c] = t
     
-    print(n)
+    if len(d) == 0:
+        print('TLE')
+    else:
+        print(min(d.keys()))
 
 if __name__ == '__main__':
     main()
