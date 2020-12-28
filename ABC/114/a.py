@@ -1,8 +1,8 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    n = int(input())
+    ans = 'YES' if n in [7, 5, 3] else 'NO'
     
-    print(n)
+    print(ans)
 
 if __name__ == '__main__':
     main()

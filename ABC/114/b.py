@@ -1,8 +1,13 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    n = input().strip()
+    L = []
+
+    for i in range(len(n) - 2):
+        a = int(n[i:i + 3])
+        L.append(abs(a - 753))
+
+    print(min(L))
     
-    print(n)
 
 if __name__ == '__main__':
     main()
