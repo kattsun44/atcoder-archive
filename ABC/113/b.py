@@ -1,8 +1,13 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    n = int(input())
+    t, a = list(map(int, input().split(' ')))
+    H = list(map(int, input().split(' ')))
+    L = []
+
+    for i in range(n):
+        L.append(abs((t - H[i] * 0.006) - a))
     
-    print(n)
+    print(L.index(min(L)) + 1)
 
 if __name__ == '__main__':
     main()
