@@ -1,8 +1,8 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    a, b = list(map(int, input().split(' ')))
     
-    print(n)
+    ans = 'Yes' if (a * b) % 2 == 1 else 'No'
+    print(ans)
 
 if __name__ == '__main__':
     main()
