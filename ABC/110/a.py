@@ -1,8 +1,7 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    L = list(map(int, input().split(' ')))
     
-    print(n)
+    print(max(L) * 9 + sum(L))
 
 if __name__ == '__main__':
     main()
