@@ -1,8 +1,7 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    s = list(input().strip())
     
-    print(n)
+    print(700 + 100 * s.count('o'))
 
 if __name__ == '__main__':
     main()
