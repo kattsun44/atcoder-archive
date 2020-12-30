@@ -1,8 +1,10 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    a = int(input())
+    b = int(input())
+    c = int(input())
+    d = int(input())
     
-    print(n)
+    print(min(a, b) + min(c, d))
 
 if __name__ == '__main__':
     main()
