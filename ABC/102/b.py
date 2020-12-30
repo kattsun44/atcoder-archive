@@ -1,8 +1,8 @@
 def main():
     n = input()
-    n = list(map(int, input().split(' ')))
+    L = list(map(int, input().split(' ')))
     
-    print(n)
+    print(max(L) - min(L))
 
 if __name__ == '__main__':
     main()
