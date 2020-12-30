@@ -1,8 +1,7 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
-    
-    print(n)
+    a, b, c = list(map(int, input().split(' ')))
+    ans = 'Yes' if (a + b) >= c else ('No')
+    print(ans)
 
 if __name__ == '__main__':
     main()
