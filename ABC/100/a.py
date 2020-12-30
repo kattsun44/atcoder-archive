@@ -1,8 +1,8 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    a, b = list(map(int, input().split(' ')))
     
-    print(n)
+    ans = 'Yay!' if a <= 8 and b <= 8 else ':('
+    print(ans)
 
 if __name__ == '__main__':
     main()
