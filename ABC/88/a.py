@@ -1,8 +1,8 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
-    
-    print(n)
+    n = int(input())
+    a = int(input())
+    ans = 'Yes' if n % 500 <= a else 'No'
+    print(ans)
 
 if __name__ == '__main__':
     main()
