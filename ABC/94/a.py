@@ -1,8 +1,10 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    a, b, x = list(map(int, input().split(' ')))
     
-    print(n)
+    if a <= x and a + b >= x:
+        print('YES')
+    else:
+        print('NO')
 
 if __name__ == '__main__':
     main()
