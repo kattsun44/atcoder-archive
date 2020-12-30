@@ -1,8 +1,12 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    L = list(map(int, input().split(' ')))
+    k = int(input())
+    d = max(L)
     
-    print(n)
+    for i in range(k):
+        d = d * 2
+
+    print(sum(L) + d - max(L))
 
 if __name__ == '__main__':
     main()

@@ -1,8 +1,9 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    a, b = list(map(int, input().split(' ')))
+
+    ans = a - 1 if a > b else a
     
-    print(n)
+    print(ans)
 
 if __name__ == '__main__':
     main()
