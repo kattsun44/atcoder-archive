@@ -1,7 +1,8 @@
 def main():
-    Y, M, D = list(map(str.strip, input().split('/')))
+    n = input()
+    n = list(map(int, input().split(' ')))
     
-    print('2018/' + M + '/' + D)
+    print(n)
 
 if __name__ == '__main__':
     main()

@@ -1,11 +1,8 @@
 def main():
-    n = int(input())
-    s = set()
-
-    for i in range(n):
-        s.add(int(input()))
+    n = input()
+    n = list(map(int, input().split(' ')))
     
-    print(len(s))
+    print(n)
 
 if __name__ == '__main__':
     main()
