@@ -1,8 +1,10 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    n = int(input())
     
-    print(n)
+    if n >= 1000:
+        print('ABD')
+    else:
+        print('ABC')
 
 if __name__ == '__main__':
     main()

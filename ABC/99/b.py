@@ -1,8 +1,9 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    a, b = list(map(int, input().split(' ')))
     
-    print(n)
+    # 隣り合った塔の差の2乗が塔の高さの合計
+    # 合計から aとbを引いた残りを2で割ったものが答え
+    print(int(((b - a) ** 2 - (a + b)) / 2))
 
 if __name__ == '__main__':
     main()
