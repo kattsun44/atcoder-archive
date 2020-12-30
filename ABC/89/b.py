@@ -1,8 +1,10 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
-    
-    print(n)
+    n = int(input())
+    S = list(map(str.strip, input().split(' ')))
+    s = len(set(S))
+
+    jdg = 'Three' if s == 3 else 'Four'
+    print(jdg)
 
 if __name__ == '__main__':
     main()

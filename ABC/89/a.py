@@ -1,8 +1,8 @@
+import math
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    n = int(input())
     
-    print(n)
+    print(math.floor(n / 3))
 
 if __name__ == '__main__':
     main()
