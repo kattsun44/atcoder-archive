@@ -1,8 +1,12 @@
+import math
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    a, b = list(map(str.strip, input().split(' ')))
+    n = int(a + b)
     
-    print(n)
+    if math.sqrt(n).is_integer():
+        print('Yes')
+    else:
+        print('No')
 
 if __name__ == '__main__':
     main()
