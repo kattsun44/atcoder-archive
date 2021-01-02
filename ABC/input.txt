@@ -1,6 +1,3 @@
-5
-grape
-grape
-grape
-grape
-grape
+4 2
+1 3
+2 4
