@@ -1,8 +1,7 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    M = int(input())
     
-    print(n)
+    print(48 - M)
 
 if __name__ == '__main__':
     main()
