@@ -1,11 +1,8 @@
+import math
 def main():
-    n = input().strip()
-    ans = ''
-
-    for i in n:
-        ans += '9' if i == '1' else '1'
+    n, m = list(map(int, input().split(' ')))
     
-    print(int(ans))
+    print(math.floor(10**2/7))
 
 if __name__ == '__main__':
     main()
