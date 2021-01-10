@@ -1,8 +1,12 @@
+import math
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    x, y, z = list(map(int, input().split(' ')))
     
-    print(n)
+    if x % (y+z) >= z:
+        print(math.floor(x / (y+z)))
+    else:
+        print(math.floor(x / (y+z)) - 1)
+
 
 if __name__ == '__main__':
     main()
