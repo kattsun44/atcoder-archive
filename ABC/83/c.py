@@ -1,8 +1,13 @@
+import math
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    x, y = list(map(int, input().split(' ')))
+    cnt = 0
     
-    print(n)
+    while x <= y:
+        x *= 2
+        cnt += 1
+
+    print(cnt)
 
 if __name__ == '__main__':
     main()
