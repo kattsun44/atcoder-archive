@@ -1,8 +1,13 @@
 def main():
-    n = input()
-    n = list(map(int, input().split(' ')))
+    n = int(input())
+    k = int(input())
+    X = list(map(int, input().split(' ')))
+    total = 0
+
+    for i in range(n):
+        total += min([(abs(0-X[i]) * 2), (abs(k-X[i]) * 2)])
     
-    print(n)
+    print(total)
 
 if __name__ == '__main__':
     main()
