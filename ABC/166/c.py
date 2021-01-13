@@ -13,7 +13,6 @@ def main():
         else:
             cnts[a] += 1
             cnts[b] += 1
-
     print(list(cnts.values()).count(0))
 
 if __name__ == '__main__':
