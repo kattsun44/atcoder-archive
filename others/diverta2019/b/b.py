@@ -4,10 +4,17 @@
 """
 
 def main():
-    n = int(input())
-    s = input().strip()
-    n = map(int, input().split())
-    a = list(map(int, input().split()))
+    r,g,b,n = map(int, input().split())
+    cnt = 0
+
+    for i in range(0,n+1):
+        for j in range(0,n+1-i):
+            z = (n-(i*r+j*g))/b
+            if z >= 0 and z == int(z):
+                cnt += 1
+
+    print(cnt)
+
 
 if __name__ == '__main__':
     main()
