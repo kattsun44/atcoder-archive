@@ -1,24 +1,31 @@
 """
 *    author:  kattsun
-*    created: 27-03-2021 21:59:11
+*    created: 29-03-2021 08:25:12
 """
-import itertools
-
-
-def OR(*args):
-    a = args
-    if len(a) == 2:
-        return a[0] | a[1]
-    return a[0] | OR(a[1:])
-
+from itertools import product
 
 def main():
-    n = int(input())
-    a = list(map(int, input().split()))
-    # print(list(itertools.combinations(a)))
-
-    print(OR(1, 2, 3, 4))
-
+    N = int(input())
+    A = list(map(int, input().split()))
+    INF = float('inf')
+    ans = INF
+    
+    # bit全探索
+    for _bit in product((True, False), repeat=N - 1):
+        # 末尾はつねにTrueにする
+        bit = list(_bit) + [True]
+        # XOR、OR
+        score, cur = [0, 0]
+        
+        for i in range(N):
+            cur |= A[i]
+            # 今のbitがTrueのとき、区間が終了するためscoreとcurを更新する
+            if bit[i]:
+                score ^= cur
+                cur = 0
+        ans = min(ans, score)
+    
+    print(ans)
 
 if __name__ == '__main__':
     main()
