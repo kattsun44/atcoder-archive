@@ -17,19 +17,19 @@ def main():
     # 北
     for i in range(x):
         if board[i][y] == '#':
-            n = max(n, i)  # '#'のある座標
+            n = max(n, i)
     # 東
     for i in range(w - y-1):
         if board[x][i + y + 1] == '#':
-            e = min(e, i + y + 1)  # '#'のある座標
+            e = min(e, i + y + 1)
     # 南
     for i in range(h - x-1):
         if board[i + x + 1][y] == '#':
-            s = min(s, i + x + 1)  # '#'のある座標
+            s = min(s, i + x + 1)
     # 西
     for i in range(y):
         if board[x][i] == '#':
-            ws = max(ws, i)  # '#'のある座標
+            ws = max(ws, i)
 
     ans += (y - ws - 1) + (x - n - 1) + (e - y - 1) + (s - x - 1)
     print(ans)
