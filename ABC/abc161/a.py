@@ -1,7 +1,0 @@
-def main():
-    a, b, c = list(map(int, input().split(' ')))
-    
-    print(c, a, b)
-
-if __name__ == '__main__':
-    main()
