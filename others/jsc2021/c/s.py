@@ -8,9 +8,9 @@ from math import gcd, sqrt, floor
 def main():
     A, B = map(int, input().split())
     ans = 0
-    for i in range(A, A + -(-(B - A) // 2)):
-        for j in range(i + -(-(B - A) // 2), B + 1, i):
-            ans = max(ans, gcd(i, j))
+    for c in range(1, B):
+        if B // c - (A - 1) // c >= 2:
+            ans = c
     print(ans)
 
 
