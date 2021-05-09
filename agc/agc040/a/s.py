@@ -1,26 +1,32 @@
 """
 *    author:  kattsun
-*    created: 23-03-2021 18:51:48
+*    created: 09-05-2021 11:06:24
 """
 
 
 def main():
-    s = input().strip()
+    S = input().strip()
+    cnt = {'<': 0, '>': 0}
+    prev = S[0]
     ans = 0
-    cont = 0
-    for i in range(len(s)):
-        u = s[i]
-        if i == 0:
-            ans += 1
-        else:
-            if u == pre:
-                cont += 1
-                ans += cont + 1
+    for c in S:
+        # 記号が変わる場合の処理
+        if c != prev:
+            if c == '<':
+                # 直前までの記号の数に応じた数を足す
+                ans += cnt['>'] * (cnt['>'] - 1) // 2
+                # < と > のカウント数のうち大きい方を足す
+                ans += max(cnt['<'], cnt['>'])
+                # カウント数リセット
+                cnt['<'], cnt['>'] = 0, 0
             else:
-                cont = 0
-                if u == '<':
-                    ans += 1
-        pre = u
+                # 直前までの記号の数に応じた数を足す
+                ans += cnt['<'] * (cnt['<'] - 1) // 2
+        cnt[c] += 1
+        prev = c
+    # 最後の操作
+    cnt[c] += 1
+    ans += cnt[c] * (cnt[c] - 1) // 2
 
     print(ans)
 
