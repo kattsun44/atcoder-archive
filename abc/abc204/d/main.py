@@ -13,6 +13,10 @@ def main():
     DA.popleft()
     C = 0
     # for i in range(N):
+    #     if B <= sum(DA):
+    #         C += DA[0]
+    #     else:
+    #         if DA
 
 
 if __name__ == '__main__':
