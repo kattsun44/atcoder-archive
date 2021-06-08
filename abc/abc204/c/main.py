@@ -1,23 +1,30 @@
 """
 *    author:  kattsun
-*    created: 06-06-2021 21:03:53
+*    created: 08-06-2021 07:31:44
 """
-import networkx as nx
+import sys
+sys.setrecursionlimit(10000)
 
+def iter_dfs(G, s):
+    S, Q = set(), []
+    Q.append(s)
+    while Q:
+        u = Q.pop()
+        if u in S: continue
+        S.add(u)
+        Q.extend(G[u])
+        yield u
 
 def main():
     N, M = map(int, input().split())
-    ans = N
-    DG = nx.DiGraph()
-    DG.add_nodes_from(range(1, N + 1))
+    G = [[] for i in range(N)]
+    ans = 0
     for i in range(M):
         a, b = map(int, input().split())
-        DG.add_edge(a, b)
-    for i in range(M):
-        for j in range(M):
-            for path in nx.all_simple_paths(DG, source=i+1, target=j+1):
-                if path:
-                    ans += 1
+        G[a-1].append(b-1)
+    for i in range(N):
+        temp = [False] * N
+        ans += len(list(iter_dfs(G, i)))
     print(ans)
 
 
