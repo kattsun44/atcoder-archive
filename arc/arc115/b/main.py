@@ -5,36 +5,25 @@
 
 def main():
     N = int(input())
-    if N == 1:
-        print('Yes')
-        print(0)
-        print(N)
-        return
     C = []
+    C_i0 = [] # 各行0番目の値のリスト
     for i in range(N):
         C.append(list(map(int, input().split())))
-    c_diff = []
-    r_diff = []
+        C_i0.append(C[i][0])
+    m = min(C_i0)
+    A = []
     for i in range(N):
-        if i != 0:
-            r_diff.append(C[i][0]-C[i-1][0])
-        for j in range(N-1):
-            if i == 0:
-                c_diff.append(C[i][j+1]-C[i][j])
-            else:
-                if C[i][j+1]-C[i][j] != c_diff[j]:
-                    print('No')
-                    return
-    A = [0]
-    B = [0]
-    for i in range(N-1):
-        A.append(A[i] + r_diff[i])
-        B.append(B[i] + c_diff[i])
-        minA = min(A)
-        minB = min(B)
+        A.append(C[i][0]-m)
+    B = []
     for i in range(N):
-        A[i] += -minA
-        B[i] += C[i][0] - A[i]
+        B.append(C[0][i]-A[0])
+
+    # 検証
+    for i in range(N):
+        for j in range(N):
+            if C[i][j] != A[i] + B[j]:
+                print('No')
+                return
     print('Yes')
     print(' '.join(map(str,A)))
     print(' '.join(map(str,B)))
