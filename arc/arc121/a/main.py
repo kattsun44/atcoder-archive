@@ -1,32 +1,33 @@
 """
 *    author:  kattsun
-*    created: 06-06-2021 10:09:01
+*    created: 18-06-2021 07:05:36
 """
-from itertools import combinations
-
 
 def main():
     N = int(input())
-    A = []
+    X = []
+    Y = []
     for i in range(N):
         x, y = map(int, input().split())
-        A.append((x, y))
-    # x座標, y座標それぞれの昇順にソート
-    X = sorted(A, key=lambda x: x[0])
-    Y = sorted(A, key=lambda x: x[1])
-    if N > 4:
-        X = X[:2] + X[-2:]
-        Y = Y[:2] + Y[-2:]
-    # Xからはx座標、Yからはy座標のみ抽出し、組み合わせリストを作成
-    comb_X = list(combinations([x[0] for x in X], 2))
-    comb_Y = list(combinations([y[1] for y in Y], 2))
-    B = []
-    for i in range(len(comb_X)):
-        B.append(abs(comb_X[i][0] - comb_X[i][1]))
-        B.append(abs(comb_Y[i][0] - comb_Y[i][1]))
-    B.sort(reverse=True)
-    print(B[1])
-
+        X.append((x, i))
+        Y.append((y, i))
+    X2 = sorted(X, key=lambda x:x[0])
+    Y2 = sorted(Y, key=lambda x:x[0])
+    d = []
+    d.append((abs(X2[-1][0]-X2[0][0]), str(X2[-1][1]) +'-'+ str(X2[0][1])))
+    d.append((abs(X2[-1][0]-X2[1][0]), str(X2[-1][1]) +'-'+ str(X2[1][1])))
+    d.append((abs(X2[-2][0]-X2[0][0]), str(X2[-2][1]) +'-'+ str(X2[0][1])))
+    d.append((abs(X2[-2][0]-X2[1][0]), str(X2[-2][1]) +'-'+ str(X2[1][1])))
+    d.append((abs(Y2[-1][0]-Y2[0][0]), str(Y2[-1][1]) +'-'+ str(Y2[0][1])))
+    d.append((abs(Y2[-1][0]-Y2[1][0]), str(Y2[-1][1]) +'-'+ str(Y2[1][1])))
+    d.append((abs(Y2[-2][0]-Y2[0][0]), str(Y2[-2][1]) +'-'+ str(Y2[0][1])))
+    d.append((abs(Y2[-2][0]-Y2[1][0]), str(Y2[-2][1]) +'-'+ str(Y2[1][1])))
+    d = sorted(d,key=lambda x:x[0], reverse=True)
+    # 家が重複しているか
+    if d[1][1] == d[2][1]:
+        print(d[2][0])
+    else:
+        print(d[1][0])
 
 if __name__ == '__main__':
     main()
