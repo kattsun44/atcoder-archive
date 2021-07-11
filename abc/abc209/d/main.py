@@ -5,14 +5,16 @@
 import sys
 sys.setrecursionlimit(10**8)
 
-dep = dict()
 
-def dfs(G, s, _dep=0, p=-1):
+def depth_by_dfs(G, s, seen=None, _dep=0, dep=None):
+    if dep == None: dep = dict()
+    if seen == None: seen = set()
+    seen.add(s)
     dep[s] = _dep
     for u in G[s]:
-        # print(u, p,_dep)
-        if u == p: continue
-        dfs(G, u, _dep+1, s)
+        if u in seen: continue
+        depth_by_dfs(G, u, seen, _dep+1, dep)
+    return dep
 
 def main():
     N, Q = map(int, input().split())
@@ -21,7 +23,7 @@ def main():
         a, b = map(int, input().split())
         G[a-1].add(b-1)
         G[b-1].add(a-1)
-    dfs(G, 0)
+    dep = depth_by_dfs(G, 0)
     for _ in range(Q):
         c, d = map(int, input().split())
         c -= 1
