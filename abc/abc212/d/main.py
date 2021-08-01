@@ -2,35 +2,25 @@
 *    author:  kattsun
 *    created: 31-07-2021 21:54:47
 """
-from collections import deque
+import heapq
 
 
 def main():
     Q = int(input())
-    bag = deque()
+    bag = []
     cnt = 0
-    flag = False
     for _ in range(Q):
         S = input().strip()
         n = int(S[0])
         if len(S) != 1:
             x = int(S.split(' ')[-1])
-
         if n == 1:
-            if flag:
-                if x <= bag[0] + cnt:
-                    bag.appendleft(x)
-                else:
-                    bag.append(x)
-            else:
-                bag.append(x)
-            flag = True
+            x -= cnt
+            heapq.heappush(bag, x)
         elif n == 2 and len(bag):
             cnt += x
-        else:
-            print(bag.popleft() + cnt)
-            if len(bag) == 0:
-                cnt = 0
+        elif n == 3 and len(bag):
+            print(heapq.heappop(bag) + cnt)
 
 
 if __name__ == '__main__':
