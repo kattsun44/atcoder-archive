@@ -5,7 +5,7 @@
 
 def main():
     L, R = map(int, input().split())
-    div = 10**9+7
+    MOD = 10**9+7
 
     # Lの位に等しくなるまでxを初期化
     x = 1
@@ -13,16 +13,16 @@ def main():
         x *= 10
 
     ans = 0
-    L1 = L
-    R1 = min(x*10-1, R)
+    L1 = L % MOD
+    R1 = min(x*10-1, R) % MOD
     while x <= R:
 
         # 答えを図示したときの図形
-        rectangle = (L1 * (R1 - L1 + 1)) % div
-        tryangle = int((R1 - L1) * (R1 - L1 + 1) / 2) % div
+        rectangle = (L1 * (R1 - L1 + 1)) % MOD
+        tryangle = int((R1 - L1) * (R1 - L1 + 1) / 2) % MOD
 
         ans += (rectangle + tryangle) * len(str(x))
-        ans %= div
+        ans %= MOD
         x *= 10
         L1 = x
         R1 = min(x*10-1, R)
