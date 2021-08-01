@@ -5,10 +5,13 @@
 
 
 def main():
-    N = int(input())
-    S = input().strip()
-    N, M = map(int, input().split())
-    A = list(map(int, input().split()))
+    A, B = map(int, input().split())
+    if A > 0 and B > 0:
+        print('Alloy')
+    elif A != 0:
+        print('Gold')
+    else:
+        print('Silver')
 
 
 if __name__ == '__main__':

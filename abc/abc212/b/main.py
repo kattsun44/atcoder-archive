@@ -5,10 +5,19 @@
 
 
 def main():
-    N = int(input())
     S = input().strip()
-    N, M = map(int, input().split())
-    A = list(map(int, input().split()))
+    is_same = False
+    if len(set(S)) == 1:
+        print('Weak')
+        return
+    cnt = 0
+    for i in range(3):
+        if (int(S[i]) + 1) % 10 == int(S[i+1]):
+            cnt += 1
+    if cnt == 3:
+        print('Weak')
+    else:
+        print('Strong')
 
 
 if __name__ == '__main__':
