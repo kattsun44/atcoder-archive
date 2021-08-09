@@ -1,8 +1,8 @@
 """
 *    author:  kattsun
-*    created: 08-08-2021 20:59:33
+*    created: 09-08-2021 08:09:40
 """
-from scipy.stats import rankdata
+from bisect import bisect_left
 
 
 def main():
@@ -13,10 +13,12 @@ def main():
         a, b = map(int, input().split())
         A.append(a)
         B.append(b)
-    rankA = rankdata(A, method='dense').astype(int)
-    rankB = rankdata(B, method='dense').astype(int)
+    valsA = sorted(set(A))
+    valsB = sorted(set(B))
     for i in range(N):
-        print(rankA[i], rankB[i])
+        x = bisect_left(valsA, A[i])+1
+        y = bisect_left(valsB, B[i])+1
+        print(x, y)
 
 
 if __name__ == '__main__':
