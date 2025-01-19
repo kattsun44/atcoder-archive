@@ -5,12 +5,12 @@ ans = [0] * n
 
 start = t.index(t.min)
 
-n.times do |i|
-  index = (start + i) % n
+n.times do |index|
+  i = (start + index) % n
   if i.zero?
-    ans[index] = t[index]
+    ans[i] = t[i]
   else
-    ans[index] = [t[index], ans[index-1] + s[index-1]].min
+    ans[i] = [t[i], ans[i-1] + s[i-1]].min
   end
 end
 
