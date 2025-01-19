@@ -4,7 +4,11 @@ t = gets.chomp.split(" ").map(&:to_i)
 ans = [0] * n
 
 n.times do |i|
-  ans[i] = [t[i], ans[i-1] + s[i-1]].min
+  if i.zero?
+    ans[i] = t[i]
+  else
+    ans[i] = [t[i], ans[i-1] + s[i-1]].min
+  end
 end
 
 puts ans
