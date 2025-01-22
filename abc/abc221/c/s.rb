@@ -1,11 +1,14 @@
-n = gets.chomp
-permutations = n.split("").permutation.uniq
+n = gets.chomp.split("").sort.reverse
+len = n.size
 
 ans = 0
-permutations.each do |ps|
-  p = ps.join
-  n.length.times do |i|
-    ans = [ans, p[0..i].to_i * p[i+1..n.length].to_i].max
+(1 << len-1).times do |bit|
+  s1, s2 = [], []
+  len.times do |i|
+    s1 << n[i] if bit[i] == 1
+    s2 << n[i] if bit[i] == 0
   end
+  ans = [s1.join.to_i * s2.join.to_i, ans].max
 end
+
 puts ans
