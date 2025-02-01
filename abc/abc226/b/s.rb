@@ -1,9 +1,5 @@
 require 'set'
 n = gets.chomp.to_i
-s = Set[]
-
-n.times do
-  s << gets
-end
+s = Set.new(n.times.map { gets.chomp })
 
 pp s.size
