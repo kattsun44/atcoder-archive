@@ -18,7 +18,7 @@
 		"scope": "ruby",
 		"prefix": "gets",
 		"body": [
-			"gets.chomp.split(\" \").map(&:to_i)",
+			"gets.chomp.split.map(&:to_i)",
 		],
 		"description": "Get integer array"
 	},
@@ -26,7 +26,7 @@
 		"scope": "ruby",
 		"prefix": "gets",
 		"body": [
-			"gets.chomp.split(\" \")",
+			"gets.chomp.split",
 		],
 		"description": "Get string array"
 	},
