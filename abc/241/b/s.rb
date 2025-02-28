@@ -1,15 +1,5 @@
-n, m = gets.chomp.split(" ").map(&:to_i)
-a = gets.chomp.split(" ").map(&:to_i)
-b = gets.chomp.split(" ").map(&:to_i)
+n, m = gets.chomp.split.map(&:to_i)
+a = gets.chomp.split.map(&:to_i).tally
+b = gets.chomp.split.map(&:to_i).tally
 
-success = true
-
-b.each do |bb|
-  if a.include?(bb)
-    a.delete_at(a.index(bb))
-  else
-    success = false
-  end
-end
-
-puts success ? "Yes" : "No"
+puts b.each.all? { |k, v| a[k].to_i >= v } ? "Yes" : "No"
