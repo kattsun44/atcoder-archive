@@ -26,7 +26,7 @@
 		"scope": "ruby",
 		"prefix": "gets",
 		"body": [
-			"gets.chomp.split",
+			"gets.chomp.split(\"\")",
 		],
 		"description": "Get string array"
 	},
