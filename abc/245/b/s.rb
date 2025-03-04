@@ -1,9 +1,9 @@
 n = gets.to_i
 a = gets.chomp.split.map(&:to_i)
+ans = 0
 
-a.max.times do |i|
-  if a.include?(i) == false
-    puts i
-    break
-  end
+a.sort.each do |i|
+  ans += 1 if ans == i
 end
+
+puts ans
