@@ -10,9 +10,10 @@ lr = q.times.map { gets.chomp.split.map { _1.to_i - 1 } }
 # A: まず累積和を求め、各期間についての来場者数は差分を出して求める
 
 # 累積和
-ps = [0] + n.times.map { a[0.._1].sum }
+s = 0
+prefix_sum = [0] + a.map { s += _1 }
 
 q.times do |i|
   l, r = lr[i][0], lr[i][1] + 1
-  puts ps[r] - ps[l]
+  puts prefix_sum[r] - prefix_sum[l]
 end
