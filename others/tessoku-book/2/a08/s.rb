@@ -32,6 +32,6 @@ abcd.each do |a, b, c, d|
   x = prefix_sum[c-1][d-1]
   y = [a-2, b-2].any? { _1 < 0 } ? 0 : prefix_sum[a-2][b-2]
   z = a-2 < 0 ? 0 : prefix_sum[a-2][d-1]
-  aa = b-2 < 0 ? 0 : prefix_sum[b-2][c-1]
+  aa = b-2 < 0 ? 0 : prefix_sum[c-1][b-2]
   puts x + y - z - aa
 end
