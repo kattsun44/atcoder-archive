@@ -1,40 +1,37 @@
-n, m = gets.chomp.split.map(&:to_i)
+# https://atcoder.jp/contests/abc396/tasks/abc396_d
+# D - Minimum XOR Path
 
-# h = Hash.new{ |h, k| h[k] = [] }
+# ### 問題文
+#
+# 頂点に 1 から N の、辺に 1 から M の番号がついた N 頂点 M 辺の単純連結無向グラフが与えられます。
+# 辺 ii は頂点 ui と頂点 vi を結んでおり、ラベル wi が付けられています。
+# 頂点 1 から頂点 N への単純パス（同じ頂点を 2 度以上通らないパス）のうち、パスに含まれる辺につけられたラベルの総 XOR としてあり得る最小値を求めてください。
 
-# m.times do
-#   u, v, w = gets.chomp.split.map(&:to_i)
-#   h[u].push([v, w])
-# end
+N, M = gets.chomp.split.map(&:to_i)
 
-# pp h
+# 単純パスを全部列挙するために DFS を用いる
+def dfs(pos, graph, visited, xor)
+  visited[pos] = true # 頂点を訪問済みにする
 
-def dfs(pos, graph, visited, s, ans, m)
-  visited[pos] = true
-  graph[pos].each do |next_pos|
-    s << next_pos[1]
-    if pos == m
-      ans << s.inject(:^)
-      s = []
-    end
-    dfs(next_pos[0], graph, visited, s, ans, m) unless visited[next_pos[0]]
-  end
+  $ans = [$ans, xor].min if pos == N
+
+  graph[pos].each { |v, w| dfs(v, graph, visited, xor ^ w) unless visited[v] }
+
+  visited[pos] = false # 訪問済みを解除する
 end
 
-s = []
-ans = []
-graph = Array.new(n+1) { [] }
-visited = Array.new(n+1, false)
-visited[0] = true
+$ans = 1 << 60
+graph = Array.new(N+1) { [] }
+visited = Array.new(N+1) { false }
+visited[0] = true #不使用
 
-m.times do |i|
+M.times do
   u, v, w = gets.chomp.split.map(&:to_i)
   # 双方向に辺を張る
   graph[u] << [v, w]
   graph[v] << [u, w]
 end
 
-dfs(1, graph, visited, s, ans, m)
+dfs(1, graph, visited, 0)
 
-# pp [graph, visited]
-pp ans
+pp $ans
