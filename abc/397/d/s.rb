@@ -2,29 +2,30 @@ require 'prime'
 
 n = gets.to_i
 
-primes = n.prime_division
-
-
-def main(primes)
-  if primes.size == 0
-    puts -1
-    return
-  end
-
-  primes.each do |p|
-    a, b = p.sort
-    1.upto(b) do |y|
-      (y+1).upto(b) do |x|
-        c = x-y
-        d = x**2 + x*y + y**2
-        next if c % 2 == 1 && d % 2 == 0
-        if c == a && d == b
-          puts "#{x} #{y}"
-          return
-        end
-      end
+# 二分探索で ax^2 + bx + c = 0 の解を求める
+# 解がない場合は -1 を返す
+def solve(a, b, c)
+  l, r = 0, 10 ** 6
+  while r - l > 1 do
+    mid = (l + r) / 2
+    if a * mid * mid + b * mid + c <= 0
+      l = mid
+    else
+      r = mid
     end
+  end
+  return l if a * l * l + b * l + c == 0
+  return -1
+end
+
+1.upto(10 ** 6) do |d|
+  m = n / d
+  # 3k^2 + 3dk + d^2 - m = 0
+  k = solve(3, 3 * d, d * d - m)
+  if k > 0
+    puts "#{k + d} #{k}"
+    exit
   end
 end
 
-main(primes)
+puts -1
