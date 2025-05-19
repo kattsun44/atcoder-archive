@@ -1,6 +1,6 @@
 x, y, z = gets.chomp.split.map(&:to_i)
 
-ans = x
+ans = x.abs
 
 if (0..x).cover?(y)
   if (0..z).cover?(y)
